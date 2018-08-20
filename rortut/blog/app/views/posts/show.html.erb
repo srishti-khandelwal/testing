@@ -1,0 +1,16 @@
+<div>
+	<h1><%= @post.title %></h1>
+	<p><%= @post.content %></p>
+	<p>
+		<small>Submitted </small>
+		<small><%=time_ago_in_words(@post.created_at) %></small>
+		<small> ago</small>
+	</p>
+</div>
+<div id="comments">
+	<h2><%= @post.comments.count %> Comments</h2>
+	<%= render @post.comments %>
+	<h3>Add a comment</h3>
+	<%= render "comments/form" %>
+</div>
+

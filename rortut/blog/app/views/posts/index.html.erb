@@ -1,0 +1,23 @@
+<div id="page_wrapper">
+	<h1>Our Blog</h1>
+	<div>
+		<% @posts.each do |post| %>
+			<h2><%= link_to post.title, post_path(post) %></h2>
+			<p> <%= post.content %></p>
+			<p>
+				<%= link_to "Edit", edit_post_path(post) %> | 
+				<%= link_to "Delete",
+							 post, 
+							 data: { confirm: "Are you sure?" }, 
+							 method: :delete %>
+			</p>
+			<hr />
+		<% end %>
+	</div>
+
+	<p><%= link_to "Add a New Post", new_post_path %></p>
+
+	<div>
+		<p class="sign_in">Admin Login</p>
+	</div>
+</div>
